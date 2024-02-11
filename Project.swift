@@ -10,6 +10,7 @@ extension Target {
             product: .framework,
             productName: name,
             bundleId: "com.swiftbuddies.\(name.lowercased())",
+            deploymentTarget: .iOS(targetVersion: "17.0", devices: .iphone, supportsMacDesignedForIOS: true),
             sources: ["Targets/SwiftBuddies\(name)/Sources/**"],
             resources: hasResources ? ["Targets/SwiftBuddies\(name)/Resources/**"] : [],
             dependencies: dependencies
@@ -56,7 +57,7 @@ let feedModule = Target.makeModule(
 
 // Creates our project using a helper function defined in ProjectDescriptionHelpers
 let project = Project.app(
-    name: "SwiftBuddiesMain",
+    name: "Buddies",
     platform: .iOS,
     additionalTargets: [
         feedModule,

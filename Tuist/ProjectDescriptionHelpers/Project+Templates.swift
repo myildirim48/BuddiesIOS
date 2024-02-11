@@ -42,6 +42,7 @@ extension Project {
             platform: platform,
             product: .app,
             bundleId: "com.swiftbuddies.\(name.lowercased())",
+            deploymentTarget: .iOS(targetVersion: "17.0", devices: .iphone, supportsMacDesignedForIOS: true),
             infoPlist: .extendingDefault(with: infoPlist),
             sources: ["Targets/\(name)/Sources/**"],
 //            resources: ["Targets/\(name)/Resources/**"],
