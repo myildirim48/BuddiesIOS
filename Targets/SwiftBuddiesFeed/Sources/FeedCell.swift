@@ -78,7 +78,7 @@ struct FeedCell: View {
             }
             .padding(.top, 8)
             .padding(.horizontal, 10)
-            .foregroundColor(.mainGray)
+            .foregroundColor(.gray)
             
             Divider()
             
@@ -121,7 +121,7 @@ struct FeedCell: View {
             }
             .padding(.top, 4)
             .padding([.bottom, .horizontal], 10)
-            .foregroundColor(.mainGray)
+            .foregroundColor(.gray)
         }
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 15))
