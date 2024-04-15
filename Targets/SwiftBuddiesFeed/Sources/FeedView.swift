@@ -4,6 +4,9 @@ import Design
 import DefaultNetworkOperationPackage
 
 public struct FeedView: View {
+    
+    @State private var addPost = false
+    
     public var body: some View {
         NavigationStack{
             ScrollView{
@@ -27,17 +30,23 @@ public struct FeedView: View {
                         
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Image(systemName: "plus.circle")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 24, height: 24)
-                        .foregroundColor(.cyan)
-                        
+                    Button(action: {
+                        addPost.toggle()
+                    }) {
+                        Image(systemName: "plus.circle")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(Color.cyan)
+                    }
                 }
             }
             .background(.white) //here will be custom color
+            .sheet(isPresented: $addPost) {
+                
+                AddPostView()
+            }
         }
-        
     }
 }
 
