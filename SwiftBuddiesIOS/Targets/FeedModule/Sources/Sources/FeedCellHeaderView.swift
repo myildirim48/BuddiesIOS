@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Design
 
 struct FeedCellHeaderView: View {
     let post: Post
@@ -15,7 +16,7 @@ struct FeedCellHeaderView: View {
         HStack{
             if let user = post.user{
                 // MARK: - User photo
-                Image(user.profileImageUrl)
+                Image(user.profileImageUrl, bundle: DesignResources.bundle)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 43, height: 43)

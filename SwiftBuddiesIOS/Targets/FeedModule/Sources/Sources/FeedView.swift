@@ -1,15 +1,14 @@
-
 import SwiftUI
 import Design
-import DefaultNetworkOperationPackage
 
 public struct FeedView: View {
     
     @State private var addPost = false
     
+    public init() {}
     public var body: some View {
-        NavigationStack{
-            ScrollView{
+        NavigationStack {
+            ScrollView {
                 LazyVStack(spacing: 10) {
                     ForEach(Post.MOCK_POSTS) { post in
                         FeedCell(post: post)
@@ -23,11 +22,10 @@ public struct FeedView: View {
             
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Image("logo")
+                    Image("logo", bundle: DesignResources.bundle)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 100, height: 32)
-                        
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
@@ -41,9 +39,9 @@ public struct FeedView: View {
                     }
                 }
             }
-            .background(.white) //here will be custom color
+            // TODO: here will be custom color
+            .background(Color(CGColor(gray: 0.9, alpha: 0.5)))
             .sheet(isPresented: $addPost) {
-                
                 AddPostView()
             }
         }
