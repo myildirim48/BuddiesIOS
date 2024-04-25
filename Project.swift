@@ -143,6 +143,8 @@ let project = Project(
             ),
             sources: ["SwiftBuddiesIOS/Sources/**"],
             resources: ["SwiftBuddiesIOS/Resources/**"],
+            scripts: [TargetScript.pre(path: "Scripts/swiftlint.sh",
+                                       name: "SwiftLint Script")],
             dependencies: [
                 .package(product: "GoogleSignIn", type: .runtime, condition: .none),
                 .target(authModule),
