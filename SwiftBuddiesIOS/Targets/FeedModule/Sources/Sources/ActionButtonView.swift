@@ -9,35 +9,36 @@
 import SwiftUI
 
 struct ActionButtonView: View {
+    
     @State private var isLiked = false
     @State private var showComments = false
     @State private var isSafed = false
-
+    
     var body: some View {
         HStack {
             Spacer()
-
-            ActionButton(action: {
+            ActionButton(systemImageName: isLiked ? "heart.fill" : "heart",
+                         label: "Like",
+                         isToggled: isLiked,
+                         toggledColor: .red) {
                 isLiked.toggle()
-                print("like post")
-            }, imageName: isLiked ? "heart.fill" : "heart", label: "Like", isToggled: isLiked, toggledColor: .red)
-
-            Spacer()
-
-            ActionButton(action: {
-                showComments.toggle()
-            }, imageName: "bubble.right", label: "Comment", isToggled: false, toggledColor: .blue)
-            .sheet(isPresented: $showComments) {
-                CommentView()
-                    .presentationDetents([.medium, .large])
             }
-
+            Spacer()
+            
+            ActionButton(systemImageName: "bubble.right",
+                         label: "Comment",
+                         isToggled: false,
+                         toggledColor: .blue) {
+                showComments.toggle()
+            }
             Spacer()
 
-            ActionButton(action: {
+            ActionButton(systemImageName: isSafed ? "bookmark.fill" : "bookmark",
+                         label: "Safe",
+                         isToggled: isSafed,
+                         toggledColor: .yellow) {
                 isSafed.toggle()
-                print("Safe")
-            }, imageName: isSafed ? "bookmark.fill" : "bookmark", label: "Safe", isToggled: isSafed, toggledColor: .yellow)
+            }
 
             Spacer()
         }
@@ -47,6 +48,6 @@ struct ActionButtonView: View {
     }
 }
 
-#Preview {
-    ActionButtonView()
-}
+//#Preview {
+//    ActionButtonView()
+//}

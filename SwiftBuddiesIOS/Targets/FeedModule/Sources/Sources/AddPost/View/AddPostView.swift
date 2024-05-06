@@ -16,13 +16,18 @@ struct AddPostView: View {
     
     var body: some View {
         NavigationStack {
-            VStack{
+            VStack {
                 AddPostHeaderButtonsView()
                 
                 Divider()
                 
-                AddPostContentView(viewModel: viewModel, imagePickerPresented: $imagePickerPresented)
-                AddPhotoButton(isCameraViewPresented: $isCameraViewPresented, imagePickerPresented: $imagePickerPresented, viewModel: viewModel)
+                AddPostContentView(viewModel: viewModel, 
+                                   imagePickerPresented: $imagePickerPresented
+                )
+                AddPhotoButton(isCameraViewPresented: $isCameraViewPresented,
+                               imagePickerPresented: $imagePickerPresented,
+                               viewModel: viewModel
+                )
                     .padding(.vertical, 10)
             }
         }

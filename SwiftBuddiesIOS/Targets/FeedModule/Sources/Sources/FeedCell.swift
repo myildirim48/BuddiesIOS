@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct FeedCell: View {
-    let post: Post
+    let post: PostModel
     
-    var body: some View{
+    var body: some View {
         
-        VStack{
-            FeedCellHeaderView(post: Post.MOCK_POSTS[0])
-            FeedCellContentView(post: Post.MOCK_POSTS[1])
-            FeedCellCountersView(post: Post.MOCK_POSTS[2])
+        VStack {
+            FeedCellHeaderView(post: PostModel.MockPosts[0])
+            FeedCellContentView(post: PostModel.MockPosts[1])
+            FeedCellCountersView(post: PostModel.MockPosts[2])
             
             Divider()
             
@@ -28,5 +28,5 @@ struct FeedCell: View {
 }
 
 #Preview {
-    FeedCell(post: Post.MOCK_POSTS[0])
+    FeedCell(post: PostModel.MockPosts[0])
 }

@@ -10,14 +10,13 @@ import PhotosUI
 import SwiftUI
 
 @MainActor
-class AddPostViewModel: ObservableObject{
+class AddPostViewModel: ObservableObject {
     
     @Published var selectedImage: PhotosPickerItem? {
         didSet { Task { await loadImage(fromItem:selectedImage) } }
     }
     
     @Published var postImage: Image?
-    
     
     func loadImage(fromItem item: PhotosPickerItem?) async {
         guard let item = item else { return }

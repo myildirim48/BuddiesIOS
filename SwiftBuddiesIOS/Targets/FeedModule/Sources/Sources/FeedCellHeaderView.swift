@@ -10,11 +10,11 @@ import SwiftUI
 import Design
 
 struct FeedCellHeaderView: View {
-    let post: Post
+    let post: PostModel
     
     var body: some View {
-        HStack{
-            if let user = post.user{
+        HStack {
+            if let user = post.user {
                 // MARK: - User photo
                 Image(user.profileImageUrl, bundle: DesignResources.bundle)
                     .resizable()
@@ -22,7 +22,7 @@ struct FeedCellHeaderView: View {
                     .frame(width: 43, height: 43)
                     .clipShape(Circle())
                 
-                VStack{
+                VStack {
                     // MARK: - User name
                     Text(user.name)
                         .font(.body)
@@ -47,5 +47,5 @@ struct FeedCellHeaderView: View {
 }
 
 #Preview {
-    FeedCellHeaderView(post: Post.MOCK_POSTS[0])
+    FeedCellHeaderView(post: PostModel.MockPosts[0])
 }

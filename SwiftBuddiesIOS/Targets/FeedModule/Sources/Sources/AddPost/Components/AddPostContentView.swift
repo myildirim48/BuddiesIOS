@@ -15,18 +15,13 @@ struct AddPostContentView: View {
     let placeholder = "What is new?"
     
     var body: some View {
-        ScrollView{
-            VStack{
+        ScrollView {
+            VStack {
                 
                 // MARK: - Message
                 
                 TextEditor(text: $customTF)
                     .foregroundColor(customTF.isEmpty ? .gray : .primary)
-                    .onChange(of: customTF) { _ in
-                        if customTF == placeholder {
-                            customTF = ""
-                        }
-                    }
                     .overlay(
                         customTF.isEmpty ? Text(placeholder).foregroundColor(.gray).padding(.all, 4) : nil, alignment: .topLeading
                     )
@@ -49,8 +44,9 @@ struct AddPostContentView: View {
                             }) {
                                 Image(systemName: "pencil.circle.fill")
                                 
-                                    .imageScale(.medium)
-                                    .foregroundColor(.black)
+                                    .imageScale(.large)
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(Color.white, Color.cyan)
                             }
                             
                             Button(action: {
@@ -58,8 +54,9 @@ struct AddPostContentView: View {
                             }) {
                                 Image(systemName: "xmark.circle.fill")
                                 
-                                    .imageScale(.medium)
-                                    .foregroundColor(.black)
+                                    .imageScale(.large)
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(Color.white, Color.cyan)
                             }
                         }
                         .padding([.top, .trailing], 10)

@@ -14,15 +14,15 @@ struct AddPostHeaderButtonsView: View {
     
     var body: some View {
         
-        HStack{
-            Button{
+        HStack {
+            Button {
                 self.presentationMode.wrappedValue.dismiss()
             } label: {
                 Image(systemName: "xmark.circle")
                     .imageScale(.large)
             }
             Spacer()
-            Button{
+            Button {
                 print("safe button pressed")
             } label: {
                 Text("Post")

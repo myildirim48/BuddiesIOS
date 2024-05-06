@@ -8,18 +8,18 @@
 
 import Foundation
 
-struct Post: Identifiable, Hashable, Codable {
+struct PostModel: Identifiable, Hashable, Codable {
     let id: String
     let authorId: String
     let likeCount: Int
     let commentsCount: Int
     let content: String
     let imageUrl: String?
-    var user: User?
+    var user: UserModel?
 }
 
-extension Post {
-    static var MOCK_POSTS: [Post] = [
+extension PostModel {
+    static var MockPosts: [PostModel] = [
         .init(
             id: NSUUID().uuidString,
             authorId: NSUUID().uuidString,
@@ -27,7 +27,7 @@ extension Post {
             commentsCount: 10,
             content: "Lets do it...",
             imageUrl: "example",
-            user: User.MOCK_USERS[0]
+            user: UserModel.MockUsers[0]
         ),
         .init(
             id: NSUUID().uuidString,
@@ -36,7 +36,7 @@ extension Post {
             commentsCount: 15,
             content: "Hello everyone",
             imageUrl: "",
-            user: User.MOCK_USERS[0]
+            user: UserModel.MockUsers[0]
         ),
         .init(
             id: NSUUID().uuidString,
@@ -45,7 +45,7 @@ extension Post {
             commentsCount: 20,
             content: "Our first steps in project...",
             imageUrl: "logo",
-            user: User.MOCK_USERS[0]
+            user: UserModel.MockUsers[0]
         )
         
     ]

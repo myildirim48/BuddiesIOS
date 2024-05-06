@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CommentCell: View {
     
-    let post: Post
+    let post: PostModel
     var body: some View {
         HStack(spacing: 8){
             if let user = post.user{

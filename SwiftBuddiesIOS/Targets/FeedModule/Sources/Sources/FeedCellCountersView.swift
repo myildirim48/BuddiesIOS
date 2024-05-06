@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct FeedCellCountersView: View {
-    let post: Post
+    let post: PostModel
     
     var body: some View {
-        HStack{
+        HStack {
             // MARK: - Like counter
             Image(systemName: "heart")
             
@@ -26,7 +26,6 @@ struct FeedCellCountersView: View {
                 .font(.footnote)
                 .fontWeight(.regular)
                 .frame(maxWidth: .infinity, alignment: .trailing)
-            
         }
         .padding(.top, 8)
         .padding(.horizontal, 10)
@@ -35,5 +34,5 @@ struct FeedCellCountersView: View {
 }
 
 #Preview {
-    FeedCellCountersView(post: Post.MOCK_POSTS[0])
+    FeedCellCountersView(post: PostModel.MockPosts[0])
 }

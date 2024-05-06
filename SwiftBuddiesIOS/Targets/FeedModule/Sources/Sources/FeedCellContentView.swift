@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct FeedCellContentView: View {
-    let post: Post
+    let post: PostModel
     
     var body: some View {
         // MARK: - post mesage
@@ -29,5 +29,5 @@ struct FeedCellContentView: View {
 }
 
 #Preview {
-    FeedCellContentView(post: Post.MOCK_POSTS[0])
+    FeedCellContentView(post: PostModel.MockPosts[0])
 }

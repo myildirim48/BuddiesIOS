@@ -14,42 +14,41 @@ struct AddPhotoButton: View {
     @ObservedObject var viewModel: AddPostViewModel
     
     var body: some View {
-        HStack{
-            Button{
+        HStack {
+            Button(action: {
                 isCameraViewPresented.toggle()
-            } label: {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.white)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.cyan, lineWidth: 2)
-                        )
-                    Image(systemName: "camera.fill")
-                        .foregroundColor(.gray)
-                        .imageScale(.large)
-                }
-                .frame(width: 50, height: 50)
+            }) {
+                Image(systemName: "camera.fill")
+                    .foregroundColor(.gray)
+                    .imageScale(.large)
+                    .frame(width: 50, height: 50)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.white)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.cyan, lineWidth: 2)
+                            )
+                    )
             }
             .fullScreenCover(isPresented: $isCameraViewPresented) {
                 CameraView()
             }
-            
-            Button{
+            Button(action: {
                 imagePickerPresented.toggle()
-            } label: {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.white)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.cyan, lineWidth: 2)
-                        )
-                    Image(systemName: "photo.badge.plus")
-                        .foregroundColor(.gray)
-                        .imageScale(.large)
-                }
-                .frame(width: 50, height: 50)
+            }) {
+                Image(systemName: "photo.badge.plus")
+                    .foregroundColor(.gray)
+                    .imageScale(.large)
+                    .frame(width: 50, height: 50)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.white)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.cyan, lineWidth: 2)
+                            )
+                    )
             }
             .photosPicker(isPresented: $imagePickerPresented, selection: $viewModel.selectedImage)
         }
