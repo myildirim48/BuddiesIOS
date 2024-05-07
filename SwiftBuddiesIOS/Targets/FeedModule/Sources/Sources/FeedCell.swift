@@ -14,9 +14,9 @@ struct FeedCell: View {
     var body: some View {
         
         VStack {
-            FeedCellHeaderView(post: PostModel.MockPosts[0])
-            FeedCellContentView(post: PostModel.MockPosts[1])
-            FeedCellCountersView(post: PostModel.MockPosts[2])
+            FeedCellHeaderView(post: post)
+            FeedCellContentView(post: post)
+            FeedCellCountersView(post: post)
             
             Divider()
             

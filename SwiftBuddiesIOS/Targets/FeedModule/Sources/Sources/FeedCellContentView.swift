@@ -7,12 +7,13 @@
 //
 
 import SwiftUI
+import Design
 
 struct FeedCellContentView: View {
     let post: PostModel
     
     var body: some View {
-        // MARK: - post mesage
+        // MARK: - post message
         Text(post.content)
             .frame(maxWidth: .infinity, alignment: .leading)
             .font(.footnote)
@@ -20,8 +21,8 @@ struct FeedCellContentView: View {
             .padding(.top, 4)
         
         // MARK: - post image
-        if let imageUrl = post.imageUrl, !imageUrl.isEmpty {
-            Image(imageUrl)
+        if let image = post.imageUrl, !image.isEmpty {
+            Image(image, bundle: DesignResources.bundle)
                 .resizable()
                 .scaledToFit()
         }
