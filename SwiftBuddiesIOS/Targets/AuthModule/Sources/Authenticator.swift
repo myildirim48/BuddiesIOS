@@ -14,7 +14,13 @@ final public class Authenticator {
     
     @MainActor
     public func signIn() async throws {
-        guard let vc = UIApplication.shared.windows.first?.rootViewController else { return }
+        guard let firstScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return
+        }
+        
+        guard let vc = firstScene.windows.first?.rootViewController else {
+            return
+        }
         
         let credentials = try await googleService.signIn(withPresenting: vc)
         dump(credentials)

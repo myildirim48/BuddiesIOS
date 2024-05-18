@@ -33,6 +33,7 @@ public struct FeedView: View {
                     }) {
                         Image(systemName: "plus.circle")
                             .resizable()
+                            .renderingMode(.template)
                             .scaledToFill()
                             .frame(width: 24, height: 24)
                             .foregroundColor(Color.cyan)

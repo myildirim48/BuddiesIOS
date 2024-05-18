@@ -7,39 +7,39 @@
 //
 
 import SwiftUI
+import Design
 
 struct ActionButtonView: View {
     
     @State private var isLiked = false
     @State private var showComments = false
-    @State private var isSafed = false
+    @State private var isSaved = false
     
     var body: some View {
         HStack {
             Spacer()
-            ActionButton(systemImageName: isLiked ? "heart.fill" : "heart",
-                         label: "Like",
-                         isToggled: isLiked,
-                         toggledColor: .red) {
+            Button {
                 isLiked.toggle()
+            } label: {
+                Text("Like")
             }
+            .buttonStyle(.like(isLiked))
             Spacer()
             
-            ActionButton(systemImageName: "bubble.right",
-                         label: "Comment",
-                         isToggled: false,
-                         toggledColor: .blue) {
+            Button {
                 showComments.toggle()
+            } label: {
+                Text("Comments")
             }
+            .buttonStyle(.comment())
             Spacer()
 
-            ActionButton(systemImageName: isSafed ? "bookmark.fill" : "bookmark",
-                         label: "Safe",
-                         isToggled: isSafed,
-                         toggledColor: .yellow) {
-                isSafed.toggle()
+            Button {
+                isSaved.toggle()
+            } label: {
+                Text("Save")
             }
-
+            .buttonStyle(.save(isSaved))
             Spacer()
         }
         .padding(.top, 4)
