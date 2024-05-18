@@ -31,7 +31,7 @@ struct ActionButtonView: View {
             } label: {
                 Text("Comments")
             }
-            .buttonStyle(.comment())
+            .buttonStyle(.comment)
             Spacer()
 
             Button {
@@ -40,6 +40,13 @@ struct ActionButtonView: View {
                 Text("Save")
             }
             .buttonStyle(.save(isSaved))
+            
+            Button {
+                
+            } label: {
+                
+            }
+            .buttonStyle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Button Style@*/DefaultButtonStyle()/*@END_MENU_TOKEN@*/)
             Spacer()
         }
         .padding(.top, 4)

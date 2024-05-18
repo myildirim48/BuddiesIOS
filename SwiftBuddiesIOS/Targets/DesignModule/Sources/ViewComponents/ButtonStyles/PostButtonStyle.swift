@@ -8,12 +8,17 @@
 import SwiftUI
 
 public struct PostButtonStyle: ButtonStyle {
+    
     public enum Style {
         case like(Bool)
         case comment
         case save(Bool)
+        case addPost(AddPostType)
     }
-    
+    public enum AddPostType {
+        case icon
+        case text
+    }
     let style: Style
     
     @Environment(\.isEnabled) var isEnabled: Bool
@@ -70,6 +75,19 @@ public struct PostButtonStyle: ButtonStyle {
                     .foregroundColor(.primary.opacity(configuration.isPressed ? 0.6 : 1))
             }
             .frame(maxWidth: .infinity)
+        case .addPost(let type):
+            switch type {
+            case .icon:
+                Image(systemName: "plus.circle")
+                    .imageScale(.medium)
+                    .foregroundColor(.primary.opacity(configuration.isPressed ? 0.6 : 1))
+                    .frame(maxWidth: .infinity)
+            case .text:
+                configuration.label
+                    .font(.caption2)
+                    .foregroundColor(.primary.opacity(configuration.isPressed ? 0.6 : 1))
+                    .frame(maxWidth: .infinity)
+            }
         }
     }
 }
@@ -95,22 +113,30 @@ public struct PostButtonStyle: ButtonStyle {
             Button { } label: {
                 Text("Login")
             }
-            .buttonStyle(.comment())
+            .buttonStyle(.comment)
         } header: { Text("Secondary fill") }
     }
 })
 
 // MARK: - Extend the button style
 extension ButtonStyle where Self == PostButtonStyle {
-    public static func like(_ isToggled: Bool) -> Self {
-        PostButtonStyle(style: .like(isToggled))
+    
+    public static var comment: PostButtonStyle {
+        PostButtonStyle(style: .comment)
     }
     
-    public static func comment() -> Self {
-        PostButtonStyle(style: .comment)
+    public static func like(_ isToggled: Bool) -> Self {
+        PostButtonStyle(style: .like(isToggled))
     }
     
     public static func save(_ isToggled: Bool) -> Self {
         PostButtonStyle(style: .save(isToggled))
     }
 }
+
+extension ButtonStyle where Self == PostButtonStyle {
+    public static func addPost(_ type: PostButtonStyle.AddPostType) -> Self {
+        PostButtonStyle(style: .addPost(type))
+    }
+}
+
