@@ -1,4 +1,6 @@
 import SwiftUI
+import Map
+import SwiftData
 
 @main
 struct SwiftBuddiesIOSApp: App {
@@ -6,5 +8,8 @@ struct SwiftBuddiesIOSApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: EventModel.self)
+        
+        
     }
 }
